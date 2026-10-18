@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package bench;
+
+option go_package = "serialize-compare/internal/pb";
+
+message Simple {
+  int64 id = 1;
+  string name = 2;
+}
+
+message Address {
+  string city = 1;
+  string street = 2;
+  string zip = 3;
+}
+
+message Item {
+  string sku = 1;
+  int32 qty = 2;
+  double price = 3;
+}
+
+message Nested {
+  int64 id = 1;
+  string name = 2;
+  bool active = 3;
+  double score = 4;
+  repeated string tags = 5;
+  Address address = 6;
+  repeated Item items = 7;
+}
+
+message Batch {
+  repeated Nested records = 1;
+}
